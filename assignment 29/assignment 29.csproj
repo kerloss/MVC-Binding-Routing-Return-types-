@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>assignment_29</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="WWWroot\CSS\" />
+    <Folder Include="WWWroot\JS\" />
+    <Folder Include="WWWroot\Image\" />
+    <Folder Include="WWWroot\Lib\" />
+  </ItemGroup>
+
+</Project>
