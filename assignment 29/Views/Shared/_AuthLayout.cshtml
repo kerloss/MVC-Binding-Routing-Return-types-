@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>   @* dynamic Title according to every title name *@
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    @* Start Header *@
+    <nav>
+        <center>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-danger">Back to Index</a>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-danger">Login</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-info">Register</a>
+        </center>
+    </nav>
+    @* End Header *@
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
