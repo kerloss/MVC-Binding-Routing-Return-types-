@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>   @* dynamic Title according to every title name *@
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    @* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> *@
+</head>
+<body>
+    @* Start Header *@
+    <nav>
+        <center>
+            <!--3.Tag Helpers-->
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>
+            <a asp-controller="Home" asp-action="AboutUS" class="btn btn-warning">AboutUs</a>
+            <a asp-controller="Home" asp-action="Privacy" class="btn btn-success">Privacy</a>
+            <a asp-controller="Home" asp-action="ContactUs" class="btn btn-light">ContactUs</a>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-danger">Login</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-info">Register</a>
+            <!--1.HTML Tag-->
+            <a href="/Home/Index" class="btn btn-primary">Home</a>
+
+            <!--2.HTML Helpers-->
+            @Html.ActionLink("Home","Index","Home",null,new {@class="btn btn-primary"})
+            @* @Html.BeginForm()
+            @Html.CheckBox() *@
+
+        </center>
+    </nav>
+    @* End Header *@
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @* Start Footer *@
+    <footer>
+        <Center>
+            <div>
+                <p>copyright &copy; for Route @DateTime.Now.Year</p>
+            </div>
+        </Center>
+    </footer>
+    @* End Footer *@
+
+</body>
+</html>

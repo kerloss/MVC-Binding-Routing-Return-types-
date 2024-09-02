@@ -19,33 +19,35 @@ namespace assignment_29
         {
             //register any service need to use it with dependancy injection
             //register MVC built in services  to the containers
-            services.AddControllers();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //middleware
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();   //to use static file like bootstrap,jquery,....
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-                endpoints.MapGet("/hamada", async context =>
-                {
-                    await context.Response.WriteAsync("Hello Hamada");
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World!");
+                //});
+                //endpoints.MapGet("/hamada", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello Hamada");
+                //});
 
                 endpoints.MapControllerRoute(   //first it works with service of dependance injection then we need to add addControllers()
                     name: "default",
-                    pattern: "{controller=Movie}/{action=Index}/{id:int?}/{name:alpha?}"  //sigment/sigment  => sigment maybe static,dynamic,mixed
+                    pattern: "{controller=Home}/{action=Index}/{id:int?}/{name:alpha?}"  //sigment/sigment  => sigment maybe static,dynamic,mixed
                     //defaults: new { Controller = "Movie", Action = "GetMovie" }   //old way
                     //constraints: new { id = new IntRouteConstraint() }  //old way
                     );
